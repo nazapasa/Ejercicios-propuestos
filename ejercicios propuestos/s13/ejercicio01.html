@@ -1,0 +1,241 @@
+<!------------
+    Ejercicios:
+    Ejercicio 01
+Desarrollar una aplicacion angular que muestre en una tabla lo datos de 
+dos salones con  5 alumnos(id, nombre, promedio, estado) cada salon con un curso(id, nombre) y cada curso con un profesor(id, nombre)
+use JSon para alimentar los datos de la vista Angular.
+--------------->
+<!DOCTYPE html> 
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trabajando con Angular JS</title>
+    
+    <!--cargando librerias de Angular JS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <style>
+        body {
+          padding: 0px 20px;
+          font-family: sans-serif;
+        }
+        h1 {
+          color: #009879;
+        }
+        table {
+          border-collapse: collapse;
+          margin: 25px 0;
+          font-size: 1em;
+          font-family: sans-serif;
+          min-width: 450px;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+          width: 100%;
+        }
+        table {
+          border-collapse: collapse;
+          margin: 25px 0;
+          font-size: 1em;
+          font-family: sans-serif;
+          min-width: 450px;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+        table th,
+        table td {
+          padding: 12px 15px;
+        }
+        table tbody tr {
+          border-bottom: 1px solid #dddddd;
+        }
+        table tbody tr:nth-of-type(even) {
+          background-color: #f3f3f3;
+        }
+        /*table tbody tr:last-of-type {
+          border-bottom: 2px solid #009879;
+        }*/
+      </style>
+</head>
+<body>
+    <h1>Alumnos</h1>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <table>
+            <thead>
+                <tr>
+                  <th colspan="2">Salón</th>
+                  <th colspan="5">Alumno</th>
+                  <th colspan="3">Curso</th>
+                </tr>
+                <tr>
+                  <th>#</th>
+                  <th>Salón</th>
+                  <th>Id</th>
+                  <th>Nombre</th>
+                  <th>Correo</th>
+                  <th>Promedio</th>
+                  <th>Estado</th>
+                  <th>Id</th>
+                  <th>Nombre</th>
+                  <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="salon in salones">
+                <tr ng-repeat="alumno in salon.alumnos" ng-init="number = countInit()">
+                    <td>{{number}}</td>
+                    <td>{{salon.id}}</td>
+                    <td>{{alumno.id}}</td>
+                    <td>{{alumno.nombre}}</td>
+                    <td>{{alumno.correo}}</td>
+                    <td>{{alumno.promedio}}</td>
+                    <td>{{alumno.estado}}</td>
+                    <td>{{alumno.curso.id}}</td>
+                    <td>{{alumno.curso.nombre}}</td>
+                    <td>S/.{{alumno.curso.precio}}</td>
+                </tr>
+              </tbody>
+        </table>  
+    </div>
+    <script>
+        const salones = [
+                {
+                    id: 101,
+                    alumnos: [
+                    {
+                        id: 1,
+                        nombre: "Ivan",
+                        correo: "ivanrod@gmail.com",
+                        promedio: 17.5,
+                        estado: "habilitado",
+                        curso: {
+                        id: 1,
+                        nombre: "JavaScript Avanzado I",
+                        precio: 120,
+                        },
+                    },
+                    {
+                        id: 13,
+                        nombre: "Juan",
+                        correo: "jn@gmail.com",
+                        promedio: 14.5,
+                        estado: "habilitado",
+                        curso: {
+                        id: 1,
+                        nombre: "JavaScript Avanzado I",
+                        precio: 120,
+                        },
+                    },
+                    {
+                        id: 12,
+                        nombre: "Miguel",
+                        correo: "mg@gmail.com",
+                        promedio: 16.5,
+                        estado: "habilitado",
+                        curso: {
+                        id: 2,
+                        nombre: "JavaScript Básico I",
+                        precio: 180,
+                        },
+                    },
+                    {
+                        id: 30,
+                        nombre: "Sebastián",
+                        correo: "seb@gmail.com",
+                        promedio: 17.5,
+                        estado: "habilitado",
+                        curso: {
+                        id: 3,
+                        nombre: "JavaScript Avanzado II",
+                        precio: 120,
+                        },
+                    },
+                    {
+                        id: 56,
+                        nombre: "Alfredo",
+                        correo: "alf@gmail.com",
+                        promedio: 18.5,
+                        estado: "habilitado",
+                        curso: {
+                        id: 4,
+                        nombre: "JavaScript Avanzado III",
+                        precio: 200,
+                        },
+                    },
+                    ],
+                },
+                {
+                    id: 102,
+                    alumnos: [
+                    {
+                        id: 23,
+                        nombre: "Jorge",
+                        correo: "jg@gmail.com",
+                        promedio: 12.5,
+                        estado: "deshabilitado",
+                        curso: {
+                        id: 1,
+                        nombre: "JavaScript Avanzado I",
+                        precio: 60,
+                        },
+                    },
+                    {
+                        id: 45,
+                        nombre: "Lima",
+                        correo: "lina@gmail.com",
+                        promedio: 17.5,
+                        estado: "habilitado",
+                        curso: {
+                        id: 6,
+                        nombre: "Java POO",
+                        precio: 120,
+                        },
+                    },
+                    {
+                        id: 90,
+                        nombre: "Milagros",
+                        correo: "milagros@gmail.com",
+                        promedio: 19.5,
+                        estado: "habilitado",
+                        curso: {
+                        id: 7,
+                        nombre: "Angular",
+                        precio: 240,
+                        },
+                    },
+                    {
+                        id: 102,
+                        nombre: "Sebastián",
+                        correo: "seb@gmail.com",
+                        promedio: 17.5,
+                        estado: "habilitado",
+                        curso: {
+                        id: 3,
+                        nombre: "JavaScript Avanzado II",
+                        precio: 120,
+                        },
+                    },
+                    {
+                        id: 10,
+                        nombre: "Luis",
+                        correo: "luis@gmail.com",
+                        promedio: 15.5,
+                        estado: "habilitado",
+                        curso: {
+                        id: 8,
+                        nombre: "Angular III",
+                        precio: 300,
+                        },
+                    },
+                    ],
+                }
+            ];
+
+        var app= angular.module('myApp', []);
+        app.controller('myCtrl', function($scope) {
+            $scope.salones = salones;
+            $scope.totalCount = 0;
+            $scope.countInit = function() {
+                return ++$scope.totalCount;
+            };
+        });
+    </script>
+
+</body>
+</html>
