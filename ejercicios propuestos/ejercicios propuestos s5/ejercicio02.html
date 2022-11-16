@@ -1,0 +1,50 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Formularios HTML</title>
+    </head>
+    <body>
+
+        <h1>Ejercicio 02</h1>
+        <p>Ingresar 5 notas de un alumno y calcular el promedio, tomando en cuenta el tipo de alumno:</p>
+        <ol>
+            <li>Si es regular el promedio sera entre las 5 notas.</li>
+            <li>Si es espcial se tomara en cuenta las 4 notas mayores para el promedio.</li>
+        </ol>
+        <form action="index.html" method="get">
+            <input id="txtNombre" type="text" name="txtNombre" placeholder="ingresa tu nombre" size="40"/>
+            <br/>
+            Tipo de alumno:<select id="tipoAlumno" name="tipoAlumno">
+                <option value="1">Regular</option>
+                <option value="2">Especial</option>
+            </select>
+            <br/>
+            Nota 1: 
+            <input onchange="f02('txtNota1','lblNota1')"  id="txtNota1" value="0" min="0"  max="20"  type="range" name="txtNota1" placeholder="ingresa tu nota 1"/>
+            <label id="lblNota1" value="0" for="txtNota1">0</label>
+            <br/>
+            Nota 2:
+            <input onchange="f02('txtNota2','lblNota2')"  id="txtNota2" value="0" min="0"  max="20"  type="range" name="txtNota2" placeholder="ingresa tu nota 2"/>
+            <label id="lblNota2" value="0" for="txtNota2">0</label>
+            <br/>
+            Nota 3:
+            <input onchange="f02('txtNota3','lblNota3')"  id="txtNota3" value="0" min="0"  max="20"  type="range" name="txtNota3" placeholder="ingresa tu nota 3"/>
+            <label id="lblNota3" value="0" for="txtNota3">0</label>
+            <br/>
+            Nota 4:
+            <input onchange="f02('txtNota4','lblNota4')"  id="txtNota4" value="0" min="0"  max="20"  type="range" name="txtNota4" placeholder="ingresa tu nota 4"/>
+            <label id="lblNota4" value="0" for="txtNota4">0</label>
+            <br/>
+            Nota 5:
+            <input onchange="f02('txtNota5','lblNota5')"  id="txtNota5" value="0" min="0"  max="20"  type="range" name="txtNota5" placeholder="ingresa tu nota 5"/>
+            <label id="lblNota5" value="0" for="txtNota5">0</label>
+            <br/>
+            <input type="button" value="Enviar" onclick="f01()" />
+            <br />
+        </form>
+        <h1 id="cab01">...</h1>
+        <script src="js/ejercicio02.js">
+        </script>
+     </body>
+</html>

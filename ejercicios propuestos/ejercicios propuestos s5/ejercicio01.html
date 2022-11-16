@@ -1,0 +1,30 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Formularios HTML</title>
+    </head>
+    <body>
+        
+
+        <h1 id="cab01">Ejercicio 01</h1>
+        <p>Calcular el sueldo de empleado dependiendo de su categoria: A:5000, B:4500, C:3000 
+        Si tiene mas de 10 años de labor se le aumenta un 10% de bonificacion</p>
+        <form action="index.html" method="get">
+            <input id="txtNombre" type="text" name="txtNombre" placeholder="ingresa tu nombre" size="40"/>
+            <br />
+            Catoria:<select id="categoria" name="categoria">
+                <option value="1">A</option>
+                <option value="2">B</option>
+                <option value="3">C</option>
+            </select>
+            <br />
+            Años de labor:<input id="txtAnio" min="0" max="50" type="number" name="txtAnio" placeholder="ingresa tu año de nacimiento"/>
+            <br />
+            <input type="button" value="Enviar" onclick="f01()" />
+            <br/>
+        </form>
+
+        <script src="js/ejercicio01.js">  
+        </script>
+    </body>

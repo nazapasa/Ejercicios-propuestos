@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>POO con JS</title>
+</head>
+<body>
+    <h1>Objetos en JavaScript</h1>
+
+
+    <script type="text/javascript">
+        //Objeto literal
+        var persona = {
+            nombre: "Juan",
+            apellido: "Perez",
+            edad: 28,
+            peso: 75,
+            altura: 1.80,
+            saludar: function(){
+                return "Hola, soy " + this.nombre + " " + this.apellido;
+            }
+        };
+
+        console.log(persona.saludar());
+        console.log(persona.nombre);
+        console.log(persona.apellido);
+        console.log(persona.edad);
+        console.log(persona.peso);
+        
+    </script>
+</body>
+</html>
