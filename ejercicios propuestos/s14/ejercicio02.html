@@ -1,0 +1,86 @@
+<!---Ejercicio 02 [tiempo=15min].
+Desarrollar una aplicacion angular que permita ingresar y mostrar los datos de un aula y sus 3 alumnos(id, nombre, promedio, estado) junto con el curso que llevan(id, nombre, precio) y el profesor del curso(id, nombre).
+Use Scopes y formularios para el caso--->
+
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="formCtrl">
+  <form novalidate>
+    alumno1.Aula:<br>
+    <input type="text" ng-model="alumno.aula"><br>
+    alumno1.Id:<br>
+    <input type="number" ng-model="alumno.Id"><br>
+    alumno1.Nombre:<br>
+    <input type="text" ng-model="alumno.nombre"><br>
+    alumno1.Promedio:<br>
+    <input type="number" ng-model="alumno.promedio"><br>
+    Estado:<br>
+    <input type="text" ng-model="alumno.estado"><br>
+    Nombre del curso:<br>
+    <input type="text" ng-model="alumno.curso"><br>
+    Id:<br>
+    <input type="text" ng-model="alumno.Idcurso"><br>
+    Precio:<br>
+    <input type="number" ng-model="alumno.precio"><br>
+
+    
+    <br><br>
+    <button ng-click="reset()">RESET</button>
+  </form>
+  <p>form = {{user}}</p>
+  <p>master = {{master}}</p>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('formCtrl', function($scope) {
+    $scope.master = {alumno.salonid:"A", user.id:"1", alumno.nombre:"Naza", alumno.promedio:"11", alumno.estado:"Habilitado", alumno.curso:"matemática", alumno.idcurso:"11", alumno.precio:"100"};
+    $scope.reset = function() {
+        $scope.alumno= angular.copy($scope.master);
+    };
+    $scope.reset();
+});
+
+<div ng-app="myApp" ng-controller="myCtrl">
+        <table>
+            <thead>
+                <tr>
+                  <th colspan="2">Salón</th>
+                  <th colspan="5">Alumno</th>
+                  <th colspan="3">Curso</th>
+                </tr>
+                <tr>
+                  <th>#</th>
+                  <th>Salón</th>
+                  <th>Id</th>
+                  <th>Nombre</th>
+                  <th>Correo</th>
+                  <th>Promedio</th>
+                  <th>Estado</th>
+                  <th>Id</th>
+                  <th>Nombre</th>
+                  <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="salon in salones">
+                <tr ng-repeat="alumno in salon.alumnos" ng-init="number = countInit()">
+                    <td>{{number}}</td>
+                    <td>{{alumno.salonid}}</td>
+                    <td>{{alumno.id}}</td>
+                    <td>{{alumno.nombre}}</td>
+                    <td>{{alumno.promedio}}</td>
+                    <td>{{alumno.estado}}</td>
+                    <td>{{alumno.curso}}</td>
+                    <td>{{alumno.idcurso}}</td>
+                    <td>S/.{{alumno.precio}}</td>
+                </tr>
+              </tbody>
+        </table>  
+    </div>
+</script>
+
+</body>
+</html>
